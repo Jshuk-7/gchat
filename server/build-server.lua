@@ -1,7 +1,7 @@
-project "core"
-   kind "StaticLib"
+project "gchat_server"
+   kind "ConsoleApp"
    language "C"
-   cdialect "C99"
+   cdialect "gnu99"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "off"
 
@@ -9,7 +9,15 @@ project "core"
 
    includedirs
    {
-      "src"
+      "src",
+
+	  -- Include common
+	  "../common/src"
+   }
+
+   links
+   {
+      "gchat_common"
    }
 
    targetdir ("../bin/" .. OutputDir .. "/%{prj.name}")

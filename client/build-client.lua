@@ -1,7 +1,7 @@
-project "app"
+project "gchat_client"
    kind "ConsoleApp"
    language "C"
-   cdialect "C99"
+   cdialect "gnu99"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "off"
 
@@ -11,13 +11,13 @@ project "app"
    {
       "src",
 
-	  -- Include Core
-	  "../core/src"
+	  -- Include common
+	  "../common/src"
    }
 
    links
    {
-      "core"
+      "gchat_common"
    }
 
    targetdir ("../bin/" .. OutputDir .. "/%{prj.name}")
